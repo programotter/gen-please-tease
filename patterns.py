@@ -18,7 +18,7 @@ def set_pattern_strength(pattern_name, current_time, time_since_start, min_stren
     else:
         raise ValueError("Invalid pattern name")
 
-    
+# This is broken, so let's make the whole thing return lists of values and the caller can deal with the update rate.    
 def morse_code_pattern(current_time, time_since_start, min_strength, max_strength):
     dot_duration = 0.2
     dash_duration = dot_duration * 3
