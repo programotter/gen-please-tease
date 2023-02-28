@@ -42,14 +42,15 @@ def generate_random_phases(total_duration, min_tease_duration, max_tease_duratio
 
     return phases
 
-def run_phase(phase_name, start_value, end_value, duration, pattern_name, min_strength, max_strength):
+def run_phase(phase_name, start_value, end_value, phase_duration, pattern_name, min_strength, max_strength):
     # Get the start time
     start_time = time.monotonic()
 
     # Loop until the duration has elapsed
     while duration > 0:
+        current_time = time.monotonic()
         # Calculate the current strength based on the pattern
-        set_pattern_strength(pattern_name, start_time, min_strength, max_strength)
+        setStrength(set_pattern_strength(pattern_name, start_time, current_time - start_time, min_strength, max_strength, phase_duration))
         
         # Update the duration and strength for the next iteration
         duration -= 0.1
